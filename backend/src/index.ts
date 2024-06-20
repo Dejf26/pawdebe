@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db';
 import projectRoutes from './routes/projectRoutes';
+import authRoutes, { initializeUsers } from './routes/authRoutes';
 import activeProjectRoutes from './routes/activeProjectRoutes';
 
 dotenv.config();
@@ -15,7 +16,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/projects', projectRoutes);
-app.use('/activeProject', activeProjectRoutes); // Add this line
+app.use('/activeProject', activeProjectRoutes);
+app.use('/auth', authRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');
@@ -23,4 +25,5 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  initializeUsers();  // Wywołaj funkcję do inicjalizacji użytkowników
 });
