@@ -25,5 +25,5 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  initializeUsers();  // Wywołaj funkcję do inicjalizacji użytkowników
+  initializeUsers();
 });
