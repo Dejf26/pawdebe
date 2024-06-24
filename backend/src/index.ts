@@ -8,6 +8,7 @@ import storyRoutes from './routes/storyRoutes';
 import authRoutes, { initializeUsers } from './routes/authRoutes';
 import activeProjectRoutes from './routes/activeProjectRoutes';
 import userRoutes from './routes/userRoutes';
+import taskRoutes from './routes/taskRoutes';
 
 
 dotenv.config();
@@ -24,6 +25,8 @@ app.use('/stories', storyRoutes);
 app.use('/activeProject', activeProjectRoutes);
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
+app.use('/tasks', taskRoutes);
+
 
 
 app.get('/', (req, res) => {
