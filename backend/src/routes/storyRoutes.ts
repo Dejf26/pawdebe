@@ -13,19 +13,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-// routes/storyRoutes.ts
 router.post('/', async (req, res) => {
-    const { name, description, priority, project, status, owner } = req.body;
-    try {
-      const newStory = new Story({ name, description, priority, project, status, owner });
-      await newStory.save();
-      res.status(201).json(newStory);
-    } catch (error) {
-      console.error('Error creating story:', error);  // Dodano logowanie błędów
-      res.status(500).json({ message: 'Server error' });
-    }
-  });
-  
+  const { name, description, priority, project, status, owner } = req.body;
+  try {
+    const newStory = new Story({ name, description, priority, project, status, owner });
+    await newStory.save();
+    res.status(201).json(newStory);
+  } catch (error) {
+    console.error('Error creating story:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 router.put('/:id', async (req, res) => {
   const { name, description, priority, project, status, owner } = req.body;
