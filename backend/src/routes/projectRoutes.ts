@@ -4,7 +4,6 @@ import Project from '../models/project';
 
 const router = Router();
 
-// Create Project
 router.post('/', async (req, res) => {
   const { name, description } = req.body;
   try {
@@ -17,7 +16,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Read All Projects
 router.get('/', async (req, res) => {
   try {
     const projects = await Project.find();
@@ -28,7 +26,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Read Single Project
 router.get('/:id', async (req, res) => {
   try {
     const project = await Project.findById(req.params.id);
@@ -42,7 +39,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Update Project
 router.put('/:id', async (req, res) => {
   const { name, description } = req.body;
   try {
@@ -61,7 +57,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete Project
 router.delete('/:id', async (req, res) => {
   try {
     const deletedProject = await Project.findByIdAndDelete(new mongoose.Types.ObjectId(req.params.id));

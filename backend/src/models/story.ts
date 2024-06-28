@@ -1,4 +1,3 @@
-// models/story.ts
 import { Schema, model, Document } from 'mongoose';
 
 interface IStory extends Document {

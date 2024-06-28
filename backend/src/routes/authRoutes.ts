@@ -1,4 +1,3 @@
-// Import necessary modules
 import { Router, Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import User from '../models/user';
@@ -11,7 +10,6 @@ interface CustomJwtPayload extends JwtPayload {
   userId: string;
 }
 
-// Function to initialize users
 export const initializeUsers = async () => {
   try {
     console.log('Initializing users...');
@@ -42,7 +40,6 @@ export const initializeUsers = async () => {
   }
 };
 
-// Login endpoint
 router.post('/login', async (req: Request, res: Response) => {
   const { login, password } = req.body;
   try {
@@ -66,7 +63,6 @@ router.post('/login', async (req: Request, res: Response) => {
   }
 });
 
-// Token refresh endpoint
 router.post('/refresh', async (req: Request, res: Response) => {
   const { refreshToken } = req.body;
   try {
@@ -83,7 +79,6 @@ router.post('/refresh', async (req: Request, res: Response) => {
   }
 });
 
-// Get logged-in user's info
 router.get('/me', async (req: Request, res: Response) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {

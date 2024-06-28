@@ -4,7 +4,6 @@ import Project from '../models/project';
 
 const router = Router();
 
-// Set Active Project
 router.post('/', async (req, res) => {
   const { id } = req.body;
   try {
@@ -29,7 +28,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Get Active Project
 router.get('/', async (req, res) => {
   try {
     const activeProject = await ActiveProject.findOne().populate('projectId');

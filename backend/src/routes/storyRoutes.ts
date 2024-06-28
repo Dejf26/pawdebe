@@ -1,4 +1,3 @@
-// routes/storyRoutes.ts
 import express from 'express';
 import Story from '../models/story';
 
